@@ -1,0 +1,607 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body{
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
+    font-family: "Cormorant Garamond", serif;
+    .navi{
+        z-index: 200;
+        position: fixed;
+        display: flex;
+        right: 10px;
+        justify-content:space-between;
+        font-weight: 400;
+        ul{
+            display: flex;
+            margin: 1rem;
+            li{
+                padding: 1rem;
+                &:hover{
+                    color: aliceblue;
+                }
+            }
+            li:hover ~ .cursor{
+                transform: translate(-50%, -50%) scale(4);
+
+            }             
+            .cursor{
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                background-color: #fc8fdd;
+                border-radius: 50%;
+                pointer-events: none;
+                //.cursor 要素を中央にずらして4倍に拡大する。
+                transform: translate(-50%, -50%);
+                mix-blend-mode: difference;
+            }
+        }
+    }
+    .Gallery{
+        position: relative;
+        width:100vw;
+        height: 100vh;
+        top: 0;
+        //グラデーション背景
+        background:linear-gradient(125deg,#5ea7db,#25c1ff,#0555f5,#886be8,#cebf6f);
+        background-size: 400%;
+        background-attachment: fixed;
+        //アニメーションを20秒で無限ループ
+        animation: bgmove 20s infinite;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        .text{
+            z-index: 200;
+            display: flex;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            color: #fff1a5;
+            font-family: "Cormorant Garamond", serif;
+            
+            img{
+                height: 100px;
+            }
+            h1{
+                margin-left: 1rem;
+                z-index: -20;
+                font-size: 8rem;
+                font-weight: lighter;
+                letter-spacing: -0.5rem;
+            }
+        }
+        .cards{
+            //スクロールやアニメーションに応じて使う
+            --card-translateY-offset: 100vh;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            .cards-item{
+                --width:24vw;
+                --height:32vw;
+                //位置・回転・透明度の制御
+                --x:calc(var(--active) * 800%);
+                --y:calc(var(--active) * 200%);
+                --rot:calc(var(--active) * 120deg);
+                --opacity:calc(var(--zIndex) / var(--items) * 3 - 2);
+                position: absolute;
+                z-index: var(--zIndex);
+                width: var(--width);
+                height: var(--height);
+                margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+                top: 50%;
+                left: 50%;
+                border-radius: 2rem;
+                user-select: none;
+                transform-origin: 0% 100%;
+                background: transparent;
+                pointer-events: all;
+                transform: translate(var(--x),var(--y)) rotate(var(--rot));
+                transition: transform 1s cubic-bezier(0,0.02,0,1);
+                cursor: pointer;
+                overflow: hidden;
+                .cards-box{
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transition: opacity 1s cubic-bezier(0,0.02,0,1);
+                    opacity: var(--opacity);
+                    a{
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        user-select: auto;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            pointer-events: none;
+                        }
+                    }
+                }
+            }
+            //半透明の青いオーバーレイ
+            &::before{
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(31, 46, 207, 0.561);
+                z-index: 1;
+                transition: opacity var(--card-transition-duration) var(--card-transition-easing);
+                opacity: calc(1 - var(--opacity));
+            }
+        }
+    }
+    
+    .loading__wrapper {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        z-index: 200;
+        .loader--text {
+          color: #fff;
+          font-weight: 500;
+          margin-bottom: 1.4rem;
+       }
+       .loader {
+            position: relative;
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.561);
+            span {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+      }
+    }
+
+    .web_Container{
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        .container{
+            position: relative;
+            top: 100px;
+            display: column;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            margin: 30px;
+            .video{
+                position: relative;
+                height: 450px;
+                width: 350px;
+                margin-bottom: 10px;
+                video{
+                    border-radius: 2rem;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    filter: brightness(0.8); 
+                    transform: filter 2s ease-in-out;
+                    &:hover{
+                        filter: brightness(1); 
+                    }
+                }
+            }
+            h2{
+                position: absolute;
+                bottom: 90;
+                display: flex;
+                font-size: 1.2rem;
+                letter-spacing: 0.2rem;
+                text-align: left;
+            }
+        }
+   
+        h1{
+            position: absolute;
+            bottom: 50px;
+            left: 150px;
+            font-size: 8rem;
+            font-weight: lighter;
+            letter-spacing: -0.5rem;
+            span{
+                font-family: sans-serif;
+                font-size: 2rem;
+                letter-spacing: 0rem;
+                color: gray;
+            }
+        }  
+        transition: 2s;
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    .web_Container.on {
+      transform: translateY(0);
+      opacity: 1.0;
+    }
+
+    .About_me{
+        position: relative;
+        height: 100vh;
+        background:linear-gradient(125deg,#5ea7db,#25c1ff,#0555f5,#886be8,#cebf6f);
+        background-size: 400%;
+        background-attachment: fixed;
+        animation: bgmove 20s infinite;
+        .about_text{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200vw;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            will-change: transform;
+            h1{
+                margin:0;
+                color: #000;
+                font-size: 30vw;
+                font-weight: lighter;
+                letter-spacing: -0.5rem;
+                line-height: 200%;
+                span{
+                    font-family: sans-serif;
+                    font-size: 1rem;
+                    letter-spacing: 0rem;
+                    color: rgb(0, 0, 0);
+                }
+            }    
+        }
+        .about{
+          position: absolute;
+          top: 10%;
+          left: 50%;
+          width: 350px;
+          height: 500px;
+          background-color: #000;
+          border-radius: 1rem;
+          padding: 0.5rem;
+          will-change: transform;
+          z-index: 100;
+          .about_img{
+            width: 100%;
+            height: 200px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+              img{
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+              }
+          }
+          .about_content{
+            width: 100%;
+            height: 275px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #fff;
+            padding: 0.5rem;
+            line-height: 1.3rem;
+            h2{
+                margin-top: 1rem ;
+                font-size: 40px;
+                font-weight: lighter;
+                letter-spacing: -0.005rem;
+            }
+            p{
+                font-family: sans-serif;
+                line-height: 1.2rem;
+                font-size: 0.8rem;
+            }
+          }
+        }
+    }
+    
+    .contact{
+        position: relative;
+        height: 100vh;
+        .contact_container{
+            position: relative;
+            align-items: center;
+            place-items: center;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 33.3% 33.3% 33.3%;
+            grid-template-rows: 30% 30% 30%;
+            grid-template-areas:
+            " .  . ."
+            "email sns tel "
+            "ul image1  ."
+             ;
+            h1{
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+            .email{
+                grid-area: email;
+                text-align: center;
+                align-items: center;
+                cursor: pointer;
+                user-select: none;
+                position: relative; 
+                img{
+                    width: 10px;
+                }
+            }
+            .sns{
+                grid-area: sns;
+                text-align: center;
+                align-items: center;
+                .icon{
+                    align-items:center;
+                    justify-self: center;
+                    display: flex;
+                    img{
+                        padding: 0px 10px;
+                        width: 50px;
+                    }
+                } 
+            }
+            .tel{
+                grid-area: tel;
+                text-align: center;
+                align-items: center;
+                img{
+                    width: 10px;
+                }
+            }
+            .about_container{
+            grid-area: image1;
+            position: relative;
+                img{
+                    width: 300px;
+                }
+            }
+            .contact_ul{
+                grid-area: ul;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                text-align: center;
+                align-items: center;
+                li{
+                    padding: 1rem;  
+                    margin: 5px;
+                    position: relative;
+                    z-index: 1;
+                    transition: color 0.5s  ;
+                    &::after{
+                        content: "";
+                        background-color: #0555f5;
+                        width: 80%;
+                        height: 100%;
+                        border-radius: 10rem;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        z-index: -999;
+                        opacity: 0;
+                        transition: top 0.5s, opacity 0.5s;
+                    }     
+                    &:hover{
+                        color: #fff;
+                    } 
+                    &:hover::after{
+                        top: 50%;
+                        opacity: 1;
+                    }     
+                }
+            }
+        }
+        .ScrollTrigger{
+            width: 100%;
+            position: absolute;
+            bottom:0;
+            img{
+                width:250px;
+            }
+        }
+        .copyright{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        &::before{
+            content: '';
+            background-size: cover;
+            background-image: url(../images/9.jpg);
+            background-position: -10 -10%;
+            background-attachment: fixed; 
+            filter: blur(5px);
+            clip-path: circle(50% at center); /* 円形でカット */
+            overflow: hidden; /* 背景をカット */
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -99; 
+        } 
+    }
+    .Link_container{
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        align-items: center;
+        display: flex;
+        img{
+            height: 80%;
+            width: 80%;
+            position: absolute;
+            object-fit: cover;
+            top: 50%; 
+            left: 50%;  
+            transform: translate(-40%, -50%);
+        }
+        .link_text{
+            position: absolute;
+            left: 0;
+            bottom:10%;
+            text-align: right;
+            h1{
+                font-size: 2rem;
+            }
+        }
+    }
+    .btn_back{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        top: -50px;
+        left:-50px;
+        border-radius: 50%;
+        transform: translate(-50% -50%);
+        cursor: pointer;
+        background: #0555f5;
+        align-items: center;
+        text-align: center;
+        color: fff;
+        z-index: 1000;
+        svg{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50% -50%);
+            fill: white;
+            
+        }
+    }
+}
+
+//背景アニメーション
+@keyframes bgmove{
+    0%{
+        background-position: 0% 50%; 
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+//ページやコンポーネントの切り替え時のアニメーション効果
+
+//ビューの遷移アニメーション
+@view-transition {
+	navigation: auto;
+}
+//トランジション中の「古い」(old) と「新しい」(new) 要素のavatarに対するスタイル
+::view-transition-old(avatar),
+::view-transition-new(avatar) {
+    animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+    mix-blend-mode: normal;
+    height: 100%;
+    overflow: clip;
+}
+::view-transition-old(avatar){
+    object-fit: contain;
+}
+::view-transition-new(avatar){
+    object-fit: cover;
+}
+
+::view-transition-old(name),
+::view-transition-new(name) {
+    animation: none;
+    
+}
+::view-transition-old(root) {
+    animation: 100ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+  
+::view-transition-new(root) {
+    animation: 200ms cubic-bezier(0, 0, 0.2, 1) 100ms both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+}
+  
+@keyframes fade-out {
+    to { opacity: 0; }
+}
+@keyframes slide-from-right {
+    from { transform: translateX(30px); }
+}
+  
+@keyframes slide-to-left {
+    to { transform: translateX(-30px); }
+}
+
+@keyframes fade-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+//スムーススクロールライブラリのスタイル
+.lenis.lenis-smooth{
+    scroll-behavior:auto !important;
+}
+.lenis.lenis-smooth[data-lenis-prevent]{
+    overscroll-behavior: contain;
+}
+.lenis.lenis-stopped{
+    overflow: hidden;
+}
+.lenis.lenis-smooth iframe{
+    pointer-events: none;
+}

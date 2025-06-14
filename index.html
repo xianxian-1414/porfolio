@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: https://ogp.me/ns#">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision</title>
+    <link rel="stylesheet" href="css/destyle.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <meta property="og:url" content="https://xianxianx.chu.jp/portfolio/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="xian's portfolio"/>
+    <meta property="og:site_name" content="vision"/>
+    <meta property="og:image" content="https://xianxianx.chu.jp/images/sample.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <link rel="icon" href="https://xianxianx.chu.jp/portfolio/favicon_io/favicon.ico">
+    <link rel="icon" href="https://xianxianx.chu.jp/portfolio/favicon_io/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://xianxianx.chu.jp/portfolio/favicon_io/apple-touch-icon.png">
+</head>
+<body>
+    <!-- イラストのレイヤーを分ける -->
+    <section class="Layers">
+        <div class="Layers_container">
+            <div 
+            class="Layers_item Layers_01"
+            style="background-image: url(img/Layer_01_01.PNG);">
+            </div>
+            
+            <div class="Layers_item Layers_02">
+                <div class="star"></div>
+            </div>
+
+            <div 
+            class="Layers_item Layers_03"
+            style="background-image: url(img/Layer_01_02.PNG);">
+            </div>
+
+            <div 
+            class="Layers_item Layers_04"
+            style="background-image: url(img/Layer_01_03.PNG);">
+            </div>
+
+            <div 
+            class="Layers_item Layers_05"
+            style="background-image: url(img/Layer_02.PNG);">
+            </div>
+
+            <div class="Layers_item Layers_06">
+                <div class="text_content">
+                    <h1>Welcome to
+                    <br>X's Gallery</h1>
+                    <a href="main.html">
+                     <button class="button01" link="">Explore</button>
+                    </a>
+                </div>
+            </div>
+
+            <div 
+            class="Layers_item Layers_07"
+            style="background-image: url(img/Layer_03.PNG);">
+            </div>
+
+            <div 
+            class="Layers_item Layers_08"
+            style="background-image: url(img/Layer_04.PNG);">
+            </div>
+
+            <div 
+            class="Layers_item Layers_09"
+            style="background-image: url(img/Layer_05.PNG);">
+            </div>
+
+            <div 
+            class="Layers_item Layers_10"
+            style="background-image: url(img/Layer_06.png);">
+            </div>
+
+            <div class="Layers_item Layers_11">
+                <canvas class="snow"></canvas>
+            </div>
+        </div>
+        
+    </section>
+    <div class="loading__wrapper">
+        <div class="loader--text">Loading...</div>
+        <div class="loader">
+          <span></span>
+        </div>
+    </div> 
+    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script>
+        //マウスの位置に応じて HTML 全体の回転角度を変える CSS 変数を設定
+        document.addEventListener("mousemove",(e) =>{
+            Object.assign(document.documentElement,{
+                style:`
+            --move-x: ${(e.clientX - window.innerWidth / 2)* -0.005}deg;
+            --move-y: ${(e.clientX - window.innerHeight / 2)* -0.01}deg;
+                `,
+            });
+        });
+        //マウスの動きに応じて、見出しの背景画像の位置がずれる動き
+        document.addEventListener("mousemove", (e) => {
+            const centerElement = document.querySelector('.text_content h1');
+            
+    
+            const offsetX = (e.clientX / window.innerWidth - 0.5) * 300; 
+            const offsetY = (e.clientY / window.innerHeight - 0.5) * 300; 
+            
+
+            centerElement.style.backgroundPosition = `${50 + offsetX}% ${50 + offsetY}%`;
+        });
+    </script>
+</body>
+</html>

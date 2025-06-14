@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link1</title>
+    <link rel="stylesheet" href="../css/destyle.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://xianxianx.chu.jp/portfolio/favicon_io/favicon.ico">
+    <link rel="icon" href="https://xianxianx.chu.jp/portfolio/favicon_io/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://xianxianx.chu.jp/portfolio/favicon_io/apple-touch-icon.png">
+</head>
+<body>
+    <section>
+        <header class="main_header">   
+            <div class="btn_back">
+                <button><a href="../main.html">
+                    <svg class="back-icon" viewBox="0 0 24 24"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20v-2z"></path></svg>
+                </a></button>
+            </div>
+            <div class="navi">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../main.html">Work</a></li>
+                    <li><a href="../shop.php">Shop</a></li>
+                    <div class="cursor" id="cursor"></div>
+                </ul>
+            </div>
+        </header>
+        <div class="Link_container">
+            <div class="Gallery">
+                <img src="../images/10.jpg" alt="">
+            </div>
+            <div class="link_text">
+                <h1>「知り合い」</h1>
+                <h2>
+                    パステル・色鉛筆・水彩<br>
+                    B4 <br>
+                    257mm*364mm <br>
+                    2022</h2>
+                </div>
+            </div>
+        </section>
+        <script>
+            const cursor = document.getElementById('cursor');
+
+            document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+            });
+        </script>
+    </body>
+</html>

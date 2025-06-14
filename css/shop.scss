@@ -1,0 +1,364 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body{
+    justify-content: center;
+    align-items: center;
+    font-family:"Cormorant Garamond", serif;
+    background:linear-gradient(125deg,#5ea7db,#25c1ff,#0555f5,#886be8,#cebf6f);
+    background-size: 400%;
+    background-attachment: fixed;
+    animation: bgmove 20s infinite;
+    main{
+        position: relative;
+    }
+    header{
+        position: fixed;
+        display: flex;
+        z-index: 100;
+        .logo{
+            display: flex;
+            text-align: center;
+            align-items: center;
+            img{
+            width: 250px;
+            }
+            p{
+                font-size: 80px;
+            }
+        }
+        .navi{
+            z-index: 200;
+            position: fixed;
+            display: flex;
+            right: 10px;
+            justify-content:space-between;
+            font-weight: 400;
+            ul{
+                display: flex;
+                margin: 1rem;
+                li{
+                    padding: 1rem;
+                    &:hover{
+                        color: aliceblue;
+                        fill:white;
+                    }
+                }
+                li:hover ~ .cursor{
+                    transform: translate(-50%, -50%) scale(4);
+    
+                }             
+                .cursor{
+                    position: fixed;
+                    width: 20px;
+                    height: 20px;
+                    background-color: #fc8fdd;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    transform: translate(-50%, -50%);
+                    mix-blend-mode: difference;
+                    z-index: -100;
+                }
+                svg{
+                    width: 20px;
+                }
+            }
+        }
+    }
+    
+    .loading__wrapper {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      z-index: 200;
+      .loader--text {
+        color: #fff;
+        font-weight: 500;
+        margin-bottom: 1.4rem;
+      }
+     .loader {
+        position: relative;
+        width: 200px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.561);
+        span {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+      }
+    } 
+    
+    
+    .shopping{
+        position: relative;
+        display: flex;
+        place-content: center;
+        .product {
+            margin-top: 100px;
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            .thumbnail {
+              position: relative;
+              width: 480px; 
+              height: 480px;
+                img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: contain;
+                transition: opacity 0.3s ease;
+                position: absolute;
+                top: 0; left: 0;
+                }
+            }
+            //ホバーで切り替えるアニメーション
+            .thumb-hover {
+              opacity: 0;
+              cursor: pointer;
+            }
+            
+            .thumbnail:hover .thumb-main {
+              opacity: 0;
+            }
+            
+            .thumbnail:hover .thumb-hover {
+              opacity: 1;
+            }
+
+          }
+          
+          
+          
+    } 
+    .lightbox{
+        //画面に中央揃え
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        z-index: -100;
+        background-color:white;
+        cursor: pointer;
+        .lightbox-image{
+            position: relative;
+            display: flex;
+            img{
+                align-items: center;
+                text-align: center;
+                max-width: 500px;
+            }
+            .figcaption{
+                position: relative;
+                border-radius: 10px;
+                text-align: center;
+                align-items: center;
+                background-color: #fc8fdd;  
+                .product-details{
+                    padding: 2rem;
+                    h1{ 
+                        font-size: 30px;
+                        font-weight: 600;
+                        color: aliceblue;
+                        margin: 30px 0;
+                    }
+                    h2{
+                        font-size: 30px;
+                        font-weight: 400;
+                        margin-bottom: 30px;
+                    }
+                    span{
+                        font-size: 12px;
+                    }
+                    .product-size{
+                        margin-bottom: 30px;
+                    }
+                    .quantity-wrapper {
+                        display: inline-flex;
+                        overflow: hidden;
+                        margin-bottom: 60px;
+                        button {
+                            border: 1px solid #000;
+                            z-index: 1000;
+                            width: 3rem;
+                            background-color: #ffffff;
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                            cursor: pointer;
+                        }
+                        input[type=number]{
+                            border-top: 1px solid #000;
+                            border-bottom: 1px solid #000;
+                            background-color: #ffffff;
+                            width: 3.5rem;
+                            text-align: center;
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                        }
+                        //デフォルト＋ーを隠す
+                        input[type=number]::-webkit-inner-spin-button, 
+                        input[type=number]::-webkit-outer-spin-button { 
+                        -webkit-appearance: none;
+                        margin: 0; 
+                        }
+                        input[type=number] {
+                            -moz-appearance:textfield;
+                        }
+                    }
+
+                    .add-cart-btn {
+                        background-color: #886be8;
+                        color: white;
+                        position: relative;
+                        display: inline-block;
+                        overflow: hidden;
+                        transition: all 0.3s ease;
+                      
+                        // 上下線
+                        &::before, &::after {
+                          content: "";
+                          position: absolute;
+                          height: 2px;
+                          width: 0%;
+                          background: white;
+                          transition: all 0.3s ease;
+                        }
+                      
+                        &::before {
+                          top: 0;
+                          left: 0;
+                        }
+                      
+                        &::after {
+                          bottom: 0;
+                          right: 0;
+                        }
+                      
+                        &:hover::before,
+                        &:hover::after {
+                          width: 100%;
+                        }
+                      
+                        // 左右線（spanの中に線を作る）
+                        span {
+                          position: relative;
+                          display: block;
+                          width: 100%;
+                          height: 100%;
+                          z-index: 1;
+                          padding: 15px 40px;
+                          font-size: 20px;
+                        }
+                        span::before, span::after {
+                          content: "";
+                          position: absolute;
+                          width: 2px;
+                          height: 0%;
+                          background: white;
+                          transition: all 0.3s ease;
+                        }
+                        
+                        span::before {
+                          left: 0;
+                          top: 0;
+                        }
+                      
+                        span::after {
+                          right: 0;
+                          bottom: 0;
+                        }
+                      
+                        &:hover span::before,
+                        &:hover span::after {
+                          height: 100%;
+                        }
+                      
+                      }
+                }
+                  
+            }
+        }
+        &:has(.lightbox-image figcaption) {
+            z-index: 1;
+        }
+        .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+        }
+        .close-btn {
+            position: absolute;
+            top: -10px;      
+            right: -10px;     
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            z-index: 9999;
+            border: 1px solid #ccc;
+            transition: transform 0.2s ease;   
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+    }
+    footer{
+        position: relative;
+        height: 250px;
+        .footer_text{
+            position: absolute;
+            right: 100px;
+            bottom: 70px;
+            text-align: right;
+            line-height: 3rem;
+        }   
+    }
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+//背景アニメーション
+@keyframes bgmove{
+    0%{
+        background-position: 0% 50%; 
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
