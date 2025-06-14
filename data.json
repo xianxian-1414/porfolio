@@ -1,0 +1,100 @@
+[
+    {
+        "id":"thumb1",
+        "name":"バッジ",
+        "size":"5*5円型",
+        "price":"800",
+        "images":[
+            {"src":"imgs-shop/Badge.PNG", "alt": "badge-1"},
+            {"src":"imgs-shop/Badge1.PNG", "alt": "badge-1"},
+            {"src":"imgs-shop/Badge2.PNG", "alt": "badge-2"},
+            {"src":"imgs-shop/Badge3.PNG", "alt": "badge-3"},
+            {"src":"imgs-shop/Badge4.PNG", "alt": "badge-4"}
+        ]
+    },
+    {
+        "id":"thumb2",
+        "name":"定期入れ",
+        "size":"10*7長方形型",
+        "price":"1600",
+        "images":[
+            {"src":"imgs-shop/card.PNG", "alt": "card-1"},
+            {"src":"imgs-shop/card1.PNG", "alt": "card-1"},
+            {"src":"imgs-shop/card2.PNG", "alt": "card-2"},
+            {"src":"imgs-shop/card3.PNG", "alt": "card-3"}
+        ]
+    },
+    {
+        "id":"thumb3",
+        "name":"キーチェーン",
+        "size":"W50*H50*D1mm",
+        "price":"2000",
+        "images":[
+            {"src":"imgs-shop/keychain.PNG", "alt": "keychain-1"},
+            {"src":"imgs-shop/keychain1.PNG", "alt": "keychain-1"},
+            {"src":"imgs-shop/keychain2.PNG", "alt": "keychain-2"},
+            {"src":"imgs-shop/keychain3.PNG", "alt": "keychain-3"}
+        ]
+    },
+    {
+        "id":"thumb4",
+        "name":"スティッカーパック",
+        "size":"W115*H150*D2mm",
+        "price":"800",
+        "images":[
+            {"src":"imgs-shop/stricker_pack1.PNG", "alt": "stricker_pack-1"},
+            {"src":"imgs-shop/stricker_pack2.PNG", "alt": "stricker_pack-2"}
+        ]
+    },
+    {
+        "id":"thumb5",
+        "name":"ノート",
+        "size":"約 W115*H150*D2mm",
+        "price":"1000",
+        "images":[
+            {"src":"imgs-shop/note1.PNG", "alt": "note-1"},
+            {"src":"imgs-shop/note2.PNG", "alt": "note-2"}
+        ]
+    },
+    {
+        "id":"thumb6",
+        "name":"ポスター",
+        "size":"B4",
+        "price":"1500",
+        "images":[
+            {"src":"imgs-shop/poster1.PNG", "alt": "poster-1"},
+            {"src":"imgs-shop/poster2.PNG", "alt": "poster-2"},
+            {"src":"imgs-shop/poster3.PNG", "alt": "poster-3"}
+        ]
+    },
+    {
+        "id":"thumb7",
+        "name":"スマホケース",
+        "size":["iPhone 12", "iPhone 13", "iPhone 14 Pro"],
+        "price":"2000",
+        "images":[
+            {"src":"imgs-shop/case1.PNG", "alt": "case-1"},
+            {"src":"imgs-shop/case4.PNG", "alt": "case-4"}
+        ]
+    },
+    {
+        "id":"thumb8",
+        "name":"スマホケース",
+        "size":["iPhone 12", "iPhone 13", "iPhone 14 Pro"],
+        "price":"2000",
+        "images":[
+            {"src":"imgs-shop/case2.PNG", "alt": "case-2"},
+            {"src":"imgs-shop/case5.PNG", "alt": "case-5"}
+        ]
+    },
+    {
+        "id":"thumb9",
+        "name":"スマホケース",
+        "size":["iPhone 12", "iPhone 13", "iPhone 14 Pro"],
+        "price":"2000",
+        "images":[
+            {"src":"imgs-shop/case3.PNG", "alt": "case-3"},
+            {"src":"imgs-shop/case6.PNG", "alt": "case-6"}
+        ]
+    }
+]

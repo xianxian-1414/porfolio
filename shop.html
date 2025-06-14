@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="css/destyle.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
+    <link rel="icon" href="https://xianxianx.chu.jp/portfolio/favicon_io/favicon-32x32.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://xianxianx.chu.jp/portfolio/favicon_io/apple-touch-icon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="css/destyle.css">
+    <link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+  <main>
+      <header>
+          <div class="logo">
+              <img src="./image/contact_02.PNG" alt="">
+              <p>'s Store</p>
+          </div>
+          <nav class="navi">
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="main.html">Work</a></li>
+                  <li><a href="shop.html">Shop</a></li>
+                  <!-- <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li> -->
+                  <div class="cursor" id="cursor"></div>
+              </ul>
+          </nav>
+      </header>
+
+      <div class="loading__wrapper">
+        <div class="loader--text">Loading...</div>
+        <div class="loader">
+          <span></span>
+        </div>
+    </div> 
+  
+      <div class="shopping">
+          <ul class="product">
+              <li class="thumbnail" id="thumb1">
+                <div class="thumb-wrapper">
+                  <img class="thumb-main" src="imgs-shop/Badge.PNG" alt="badge-1"data-thumbID="thumb1">
+                  <img class="thumb-hover" src="imgs-shop/Badge1.PNG" alt="badge-2"data-thumbID="thumb1">
+                </div>
+              </li>
+            
+              <li class="thumbnail" id="thumb2">
+                <div class="thumb-wrapper">
+                  <img class="thumb-main" src="imgs-shop/card.PNG" alt="card-1"data-thumbID="thumb2">
+                  <img class="thumb-hover" src="imgs-shop/card1.PNG" alt="card-2"data-thumbID="thumb2">
+                </div>
+              </li>
+            
+              <li class="thumbnail" id="thumb3">
+                <div class="thumb-wrapper">
+                  <img class="thumb-main" src="imgs-shop/keychain.PNG" alt="keychain-1"data-thumbID="thumb3">
+                  <img class="thumb-hover" src="imgs-shop/keychain1.PNG" alt="keychain-2"data-thumbID="thumb3">
+                </div>
+              </li>
+            
+              <li class="thumbnail" id="thumb4">
+                <div class="thumb-wrapper">
+                  <img class="thumb-main" src="imgs-shop/stricker_pack1.PNG" alt="sticker_pack-1"data-thumbID="thumb4">
+                  <img class="thumb-hover" src="imgs-shop/stricker_pack2.PNG" alt="sticker_pack-2"data-thumbID="thumb4">
+                </div>
+              </li>
+            
+              <li class="thumbnail" id="thumb5">
+                <div class="thumb-wrapper">
+                  <img class="thumb-main" src="imgs-shop/note1.PNG" alt="note-1"data-thumbID="thumb5">
+                  <img class="thumb-hover" src="imgs-shop/note2.PNG" alt="note-2"data-thumbID="thumb5">
+                </div>
+              </li>
+            
+              <li class="thumbnail" id="thumb6">
+                <div class="thumb-wrapper">
+                  <img class="thumb-main" src="imgs-shop/poster1.PNG" alt="poster-1"data-thumbID="thumb6">
+                  <img class="thumb-hover" src="imgs-shop/poster2.PNG" alt="poster-2"data-thumbID="thumb6">
+                </div>
+              </li>
+            
+              <li class="thumbnail" id="thumb7">
+                <div class="thumb-wrapper">
+                  <img class="thumb-main" src="imgs-shop/case1.PNG" alt="case-1"data-thumbID="thumb7">
+                  <img class="thumb-hover" src="imgs-shop/case4.PNG" alt="case-4"data-thumbID="thumb7">
+                </div>
+              </li>
+            
+              <li class="thumbnail" id="thumb8">
+                <div class="thumb-wrapper">
+                  <img class="thumb-main" src="imgs-shop/case2.PNG" alt="case-2"data-thumbID="thumb8">
+                  <img class="thumb-hover" src="imgs-shop/case5.PNG" alt="case-5"data-thumbID="thumb8">
+                </div>
+              </li>
+            
+              <li class="thumbnail" id="thumb9">
+                <div class="thumb-wrapper">
+                  <img class="thumb-main" src="imgs-shop/case3.PNG" alt="case-3"data-thumbID="thumb9">
+                  <img class="thumb-hover" src="imgs-shop/case6.PNG" alt="case-6"data-thumbID="thumb9">
+                </div>
+              </li>
+           </ul>    
+      </div>
+      <div class="lightbox">
+          <figure class="lightbox-image">
+              <!-- 写真と商品ページここで出る -->
+          </figure>
+      </div>
+  </main>
+  <footer>
+      <div class="footer_text">
+          <p>Huang Jingxian</p>
+          <p>Hal Osaka</p>
+          <p>Portfolio/Goods shop</p>
+      </div>
+  </footer>
+  <script src="js/shop.js"></script>
+</body>
+</html>
