@@ -19,6 +19,4 @@
 - Lightbox表示中は背景の操作を無効化（`pointer-events: none`）
 - 閉じるボタンでアニメーション付きでLightboxを閉じる
 
-## 📁 フォルダ構成（例）
-
 # porfolio
